@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "My Application Ibero"
 include(":app")
+include(":app")
+ 
