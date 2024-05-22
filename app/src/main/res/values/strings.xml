@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">My Application Ibero</string>
+    <string name="already_have_account">Ya tengo una cuenta</string>
+    <string name="description_main">Todo lo que necesitas en E-commerce fácil</string>
+    <string name="button_empecemos">Empecemos</string>
+    <string name="arrow_button_description">Ya tengo cuenta</string>
+    <string name="name">E-asy</string>
 </resources>
