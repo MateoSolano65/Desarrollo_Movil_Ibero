@@ -1,4 +1,4 @@
-package com.example.myapplicationibero
+package com.santigp258.easy
 
 import org.junit.Test
 

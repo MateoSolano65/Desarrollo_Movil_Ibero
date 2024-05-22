@@ -1,8 +1,17 @@
 <resources>
-    <string name="app_name">My Application Ibero</string>
+    <string name="app_name">E-asy</string>
+    <string name="app_description">Todo lo que necesitas en E-commerce fácil</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="go_to_data_fragment">Go to Data Fragment</string>
     <string name="already_have_account">Ya tengo una cuenta</string>
-    <string name="description_main">Todo lo que necesitas en E-commerce fácil</string>
-    <string name="button_empecemos">Empecemos</string>
-    <string name="arrow_button_description">Ya tengo cuenta</string>
-    <string name="name">E-asy</string>
+    <string name="button_get_started">Empecemos</string>
+    <string name="create_account">Crear Cuenta</string>
+    <string name="profile_image">Profile Image</string>
+    <string name="email">Email</string>
+    <string name="password">Contraseña</string>
+    <string name="country_flag">Country Flag</string>
+    <string name="your_cell">Tu celular</string>
+    <string name="done">Hecho</string>
+    <string name="cancel">Cancelar</string>
+    <string name="login_text">Inicio de sesión</string>
 </resources>

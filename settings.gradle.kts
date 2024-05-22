@@ -19,7 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "My Application Ibero"
+rootProject.name = "easy"
 include(":app")
-include(":app")
- 
