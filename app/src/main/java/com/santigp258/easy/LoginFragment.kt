@@ -48,7 +48,8 @@ class LoginFragment : Fragment() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setTitle("Perfecto")
         builder.setMessage("Se hizo login")
-        builder.setPositiveButton("OK") { dialog, which ->
+        builder.setPositiveButton("Ir al inicio") { dialog, which ->
+            findNavController().navigate(R.id.action_loginFragment_to_passwordFragment)
         }
         builder.setNegativeButton("Cancelar") { dialog, which ->
             // Action

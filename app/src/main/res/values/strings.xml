@@ -14,4 +14,5 @@
     <string name="done">Hecho</string>
     <string name="cancel">Cancelar</string>
     <string name="login_text">Inicio de sesión</string>
+    <string name="login_success">Se ha logueado exitosamente</string>
 </resources>
