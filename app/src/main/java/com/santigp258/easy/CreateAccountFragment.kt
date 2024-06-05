@@ -1,6 +1,5 @@
 package com.santigp258.easy
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Patterns
 import android.view.LayoutInflater
@@ -10,14 +9,19 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.santigp258.easy.utils.AlertManager
+import com.santigp258.easy.utils.AuthManager
+import com.santigp258.easy.utils.AuthRes
+import kotlinx.coroutines.launch
 
 
 class CreateAccountFragment : Fragment() {
 
 
     private lateinit var alertManager: AlertManager
+    private val authManager: AuthManager = AuthManager()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,14 +40,24 @@ class CreateAccountFragment : Fragment() {
         val phoneEditText = view.findViewById<EditText>(R.id.phone)
 
 
-
         doneButton.setOnClickListener {
             val email = emailEditText.text.toString().trim()
             val password = passwordEditText.text.toString().trim()
             val phone = phoneEditText.text.toString().trim()
 
             if (validateForm(email, password, phone)) {
-                this.showAlert()
+                lifecycleScope.launch {
+                    when (val result =
+                        authManager.createUserWithEmailAndPassword(email, password)) {
+                        is AuthRes.Error -> {
+                            alertManager.error(result.errorMessage)
+                        }
+
+                        is AuthRes.Success -> {
+
+                        }
+                    }
+                }
             }
         }
 
@@ -53,20 +67,6 @@ class CreateAccountFragment : Fragment() {
 
         return view
     }
-
-    private fun showAlert() {
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Perfecto")
-        builder.setMessage("Se Registro!")
-        builder.setPositiveButton("Ir al login") { dialog, which ->
-            findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment)
-        }
-        builder.setNegativeButton("Cancelar") { dialog, which ->
-            // Action
-        }
-        builder.show()
-    }
-
 
     private fun validateForm(email: String, password: String, phone: String): Boolean {
         if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
