@@ -9,12 +9,15 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.santigp258.easy.utils.AlertManager
 
 
 class CreateAccountFragment : Fragment() {
+
+
+    private lateinit var alertManager: AlertManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,6 +25,8 @@ class CreateAccountFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_create_account, container, false)
+
+        alertManager = AlertManager(requireContext(), view)
 
         val doneButton = view.findViewById<Button>(R.id.btn_done)
         val cancelButton = view.findViewById<TextView>(R.id.btn_cancel)
@@ -64,28 +69,22 @@ class CreateAccountFragment : Fragment() {
 
 
     private fun validateForm(email: String, password: String, phone: String): Boolean {
-        var isValid = true
-
         if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            isValid = false
-            showError("Por favor ingrese un correo electrónico válido")
+            alertManager.error("Por favor ingrese un correo electrónico válido")
+            return false
         }
 
         if (password.isEmpty() || password.length < 6) {
-            isValid = false
-            showError("La contraseña debe tener al menos 6 caracteres")
+            alertManager.error("La contraseña debe tener al menos 6 caracteres")
+            return false
         }
 
         if (phone.isEmpty() || !Patterns.PHONE.matcher(phone).matches()) {
-            isValid = false
-            showError("Por favor ingrese un número de teléfono válido")
+            alertManager.error("Por favor ingrese un número de teléfono válido")
+            return false
         }
 
-        return isValid
-    }
-
-    private fun showError(message: String) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+        return true
     }
 
 }

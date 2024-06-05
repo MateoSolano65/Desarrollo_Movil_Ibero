@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "758945559462",
+    "project_id": "easy-app-ae7a0",
+    "storage_bucket": "easy-app-ae7a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758945559462:android:ee93d30c1ad0ba2adc1567",
+        "android_client_info": {
+          "package_name": "com.santigp258.easy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn38I4Vm5hOcGCnxO_Umc4LEFEVdkfMOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

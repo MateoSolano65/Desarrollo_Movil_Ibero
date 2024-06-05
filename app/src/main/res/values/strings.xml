@@ -15,4 +15,5 @@
     <string name="cancel">Cancelar</string>
     <string name="login_text">Inicio de sesión</string>
     <string name="login_success">Se ha logueado exitosamente</string>
+    <string name="log_out">Cerrar sesión</string>
 </resources>
